@@ -253,4 +253,4 @@ Right-click on the <tt>kalah20200717.jar</tt> entry in the package explorer (lef
 
 ###*IntelliJ*
 
-(No idea sorry. I don't use IntelliJ. But there should be something similar to what's done in Eclipse so if someone figures it out let me know so I can update this.)
+Please refer [IntelliJ Documentation](https://www.jetbrains.com/help/idea/working-with-module-dependencies.html#add-a-new-dependency).
