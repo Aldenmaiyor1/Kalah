@@ -1,9 +1,11 @@
-package kalah;
+package old;
 
-public class House implements SeedHolder{
+import kalah.SeedHolder;
+
+public class House1 implements SeedHolder {
     public int houseSeed;
     public int housePosition;
-    public House(int housePosition){
+    public House1(int housePosition){
 
         this.houseSeed = 4;
         this.housePosition = housePosition;

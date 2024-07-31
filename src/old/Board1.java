@@ -1,7 +1,6 @@
-package kalah;
+package old;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,24 +8,24 @@ import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 
 
-public class Board {
-    private List<List<House>> houseList;
-    private List<Player> playerList;
+public class Board1 {
+    private List<List<House1>> houseList;
+    private List<Player1> playerList;
 
-    public Board() {
+    public Board1() {
         this.houseList = new ArrayList<>();
         this.playerList = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            this.playerList.add(new Player());
-            List<House> playerHouses = new ArrayList<>();
+            this.playerList.add(new Player1());
+            List<House1> playerHouses = new ArrayList<>();
             for (int j = 0; j < 6; j++) {
-                playerHouses.add(new House(j));
+                playerHouses.add(new House1(j));
             }
             this.houseList.add(playerHouses);
         }
     }
 
-    public List<List<House>> getHouseList() {
+    public List<List<House1>> getHouseList() {
         return houseList;
     }
 
@@ -79,23 +78,36 @@ public class Board {
         int seedsPickedUp = this.houseList.get(playerNumber).get(houseNumber).pickupSeed();
         int currentHouse = houseNumber;
         int currentPlayer = playerNumber;
+        boolean changeTurn = true;
 
         while (seedsPickedUp > 0) {
             currentHouse++;
-            if (currentHouse == 6 && currentPlayer == playerNumber) {
+            if (currentHouse == 6 ) {
                 currentHouse = -1;
-                this.playerList.get(currentPlayer).addSeed();
-                currentPlayer = (currentPlayer + 1) % 2;
+                if(currentPlayer == playerNumber){
+                    this.playerList.get(currentPlayer).addSeed();
+                    currentPlayer = (currentPlayer + 1) % 2;
+                } else {
+                    currentPlayer = (currentPlayer + 1) % 2;
+                    this.playerList.get(currentPlayer).addSeed();
+
+                }
             } else {
                 this.houseList.get(currentPlayer).get(currentHouse).addSeed();
             }
             seedsPickedUp--;
         }
-        return false;
+        System.out.println(String.format("current house %d", currentHouse));
+        System.out.println(String.format("current player %d", currentPlayer));
+        if(currentHouse == -1 && currentPlayer != playerNumber){
+            System.out.println("changed");
+            changeTurn = false;
+        }
+        return changeTurn;
     }
 
     public static void main(String[] args) {
-        Board m = new Board();
+        Board1 m = new Board1();
         m.showBoard(new MockIO());
     }
 }

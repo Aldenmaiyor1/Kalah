@@ -1,20 +1,48 @@
 package kalah;
 
-public class Player  {
-    public int playerSeed;
-    public Player(){
-        this.playerSeed = 0;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Player {
+    private SeedStore playerSeedStore;
+    private List<SeedStore> houseList;
+
+    public Player(int numberOfHouses, int initialSeeds){
+        this.playerSeedStore = new SeedStore(0);
+        this.houseList = new ArrayList<>();
+        for (int i = 0; i < numberOfHouses; i++) {
+            this.houseList.add(new SeedStore(initialSeeds));
+        }
     }
 
-    public void setPlayerSeed(int newSeed){
-        this.playerSeed = newSeed;
-    }
-    public int getPlayerSeed(){
-        return playerSeed;
+    public SeedStore getPlayerSeedStore(){
+        return playerSeedStore;
     }
 
-    public void addSeed(){
-        playerSeed += 1;
+    public List<SeedStore> getHouseList(){
+        return houseList;
     }
 
+    public void addSeed(int startingSeed){
+        if(startingSeed == 6){
+            playerSeedStore.addSeeds(1);
+        } else{
+            this.houseList.get(startingSeed).addSeeds(1);
+        }
+    }
+
+    public int pickupSeed(int houseNumber){
+        int seedsPicked = this.houseList.get(houseNumber-1).getSeeds();
+        this.houseList.get(houseNumber-1).setSeeds(0);
+        return seedsPicked;
+    }
+
+    public boolean checkEmptyHouses(){
+        for (int i = 0; i < this.houseList.size(); i++) {
+            if(this.houseList.get(i).getSeeds() != 0){
+                return false;
+            }
+        }
+        return true;
+    }
 }
