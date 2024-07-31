@@ -57,7 +57,7 @@ public class GameLogic {
         return nToReachPlayerHouse == seeds % 14;
     }
 
-    public static boolean checkGameEnd(Player player1, Player player2){
-        return player1.checkEmptyHouses() || player2.checkEmptyHouses();
+    public static boolean checkGameEnd(Player player){
+        return player.checkEmptyHouses();
     }
 }

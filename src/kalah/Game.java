@@ -37,13 +37,13 @@ public class Game {
         int seedsPickedUp = 0;
 
 //        playerList.get(0).getHouseList().get(5).setSeeds(11);
-//        setPlayerSeeds(playerList.get(0), 2,0,0,0,3,5);
-//        setPlayerSeeds(playerList.get(1), 4,0,1,0,1,5);
-//        playerList.get(0).getPlayerSeedStore().setSeeds(5);
-//        playerList.get(1).getPlayerSeedStore().setSeeds(22);
+//        setPlayerSeeds(playerList.get(0), 0,0,1,0,0,0);
+//        setPlayerSeeds(playerList.get(1), 0,0,0,0,0,0);
+//        playerList.get(0).getPlayerSeedStore().setSeeds(31);
+//        playerList.get(1).getPlayerSeedStore().setSeeds(16);
 
 
-        while(!GameLogic.checkGameEnd(playerList.get(0), playerList.get(1))){
+        while(!GameLogic.checkGameEnd(playerList.get(currentPlayer))){
             this.showUI.showBoard(playerList.get(0), playerList.get(1));
             housePicked = this.input.getPlayerInput(currentPlayer);
             if(housePicked == -10){

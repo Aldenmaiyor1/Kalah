@@ -45,4 +45,14 @@ public class Player {
         }
         return true;
     }
+
+    public int getTotalSeeds(){
+        int playerStoreSeeds = playerSeedStore.getSeeds();
+        int playerHouseSeeds = 0;
+        for (int i = 0; i < houseList.size(); i++) {
+            playerHouseSeeds += houseList.get(i).getSeeds();
+        }
+
+        return playerHouseSeeds + playerStoreSeeds;
+    }
 }

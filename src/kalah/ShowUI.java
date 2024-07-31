@@ -38,7 +38,7 @@ public class ShowUI {
     public void gameFinished(Player player1, Player player2){
         int playerOneScore = player1.getPlayerSeedStore().getSeeds();
         int playerTwoScore = player2.getPlayerSeedStore().getSeeds();
-        io.println(String.format("      player 1:%d", playerOneScore));
+        io.println(String.format("\tplayer 1:%d", playerOneScore));
         io.println(String.format("      player 2:%d", playerTwoScore));
         if(playerOneScore > playerTwoScore){
             io.println("Player 1 wins!");
