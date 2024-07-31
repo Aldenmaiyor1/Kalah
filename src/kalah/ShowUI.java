@@ -36,16 +36,16 @@ public class ShowUI {
         io.println("Game over");
     }
     public void gameFinished(Player player1, Player player2){
-        int playerOneScore = player1.getPlayerSeedStore().getSeeds();
-        int playerTwoScore = player2.getPlayerSeedStore().getSeeds();
+        int playerOneScore = player1.getTotalSeeds();
+        int playerTwoScore = player2.getTotalSeeds();
         io.println(String.format("\tplayer 1:%d", playerOneScore));
-        io.println(String.format("      player 2:%d", playerTwoScore));
+        io.println(String.format("\tplayer 2:%d", playerTwoScore));
         if(playerOneScore > playerTwoScore){
             io.println("Player 1 wins!");
         } else if (playerTwoScore > playerOneScore) {
-            io.println("Player 1 wins!");
+            io.println("Player 2 wins!");
         } else {
-            io.println("Draw");
+            io.println("A tie!");
         }
     }
 
