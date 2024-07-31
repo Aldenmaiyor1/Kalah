@@ -2,7 +2,6 @@ package kalah;
 
 import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
-import old.Game1;
 
 /**
  * This class is the starting point for a Kalah implementation using

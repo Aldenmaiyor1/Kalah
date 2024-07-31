@@ -1,7 +1,6 @@
 package kalah;
 
 import com.qualitascorpus.testsupport.MockIO;
-import old.Player1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +35,6 @@ public class Game {
         int housePicked = 0;
         int seedsPickedUp = 0;
 
-//        playerList.get(0).getHouseList().get(5).setSeeds(11);
-//        setPlayerSeeds(playerList.get(0), 0,0,1,0,0,0);
-//        setPlayerSeeds(playerList.get(1), 0,0,0,0,0,0);
-//        playerList.get(0).getPlayerSeedStore().setSeeds(31);
-//        playerList.get(1).getPlayerSeedStore().setSeeds(16);
-
-
         while(!GameLogic.checkGameEnd(playerList.get(currentPlayer))){
             this.showUI.showBoard(playerList.get(0), playerList.get(1));
             housePicked = this.input.getPlayerInput(currentPlayer);
@@ -56,8 +48,6 @@ public class Game {
                 continue;
             }
             seedsPickedUp = this.playerList.get(currentPlayer).pickupSeed(housePicked);
-            System.out.println("seeds picked up");
-            System.out.println(seedsPickedUp);
             GameLogic.distributeSeeds(
                     playerList.get(currentPlayer),
                     playerList.get((currentPlayer + 1)%2),
@@ -74,16 +64,4 @@ public class Game {
         showUI.gameFinished(playerList.get(0), playerList.get(1));
 
     }
-
-    public Player getPlayer(int playerNumber) {
-        return this.playerList.get(playerNumber);
-    }
-
-//    public static void main(String[] args) {
-//        Game m = new Game(new Player(6,4), new Player(6,4), new ShowUI(new MockIO()));
-//        Player f = m.getPlayer(0);
-//        m.getPlayer(0).getHouseList().get(2).setSeeds(0);
-//        System.out.println(m.getPlayer(0).getHouseList());
-//        m.play();
-//    }
 }

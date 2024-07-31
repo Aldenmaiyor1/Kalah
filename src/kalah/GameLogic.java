@@ -3,17 +3,6 @@ package kalah;
 import java.util.ArrayList;
 
 public class GameLogic {
-    public static boolean checkHouseSteal(Player player, int finalHouse){
-        ArrayList<Integer> emptyHouses = new ArrayList<>();
-        for (int i = 0; i < player.getHouseList().size(); i++) {
-            if(player.getHouseList().get(i).getSeeds() == 0){
-                emptyHouses.add(i);
-                System.out.println(i);
-            }
-        }
-        return emptyHouses.contains(finalHouse) || finalHouse == 13;
-    }
-
     public static void stealSeed(Player thief, Player victim, int houseNumber){
         int seedsStolen = victim.getHouseList().get(5-houseNumber).getSeeds();
         victim.getHouseList().get(5-houseNumber).setSeeds(0);
@@ -44,10 +33,8 @@ public class GameLogic {
 
         }
         if(playerList.get(currentPlayerPosition) == currentPlayer
-                &&playerList.get(currentPlayerPosition).getHouseList().get(houseNumber).getSeeds() == 1
+                && playerList.get(currentPlayerPosition).getHouseList().get(houseNumber).getSeeds() == 1
                 && playerList.get((currentPlayerPosition+1) % 2).getHouseList().get(5-houseNumber).getSeeds() != 0){
-            System.out.println("sseeeededdstollenennn");
-            System.out.println(houseNumber);
             stealSeed(currentPlayer, otherPlayer, houseNumber);
         }
 
