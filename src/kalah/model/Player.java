@@ -7,6 +7,8 @@ public class Player {
     private SeedStore playerSeedStore;
     private List<SeedStore> houseList;
 
+    //this class holds the player object which represents a single player.
+    //the number of houses and the initial number of seeds per house can be set when creating the player object
     public Player(int numberOfHouses, int initialSeeds){
         this.playerSeedStore = new SeedStore(0);
         this.houseList = new ArrayList<>();
@@ -31,12 +33,14 @@ public class Player {
         }
     }
 
+    //empties out a specific house and returns the seeds contained in the house
     public int pickupSeed(int houseNumber){
         int seedsPicked = this.houseList.get(houseNumber-1).getSeeds();
         this.houseList.get(houseNumber-1).setSeeds(0);
         return seedsPicked;
     }
 
+    //checks if the players houses are empty
     public boolean checkEmptyHouses(){
         for (int i = 0; i < this.houseList.size(); i++) {
             if(this.houseList.get(i).getSeeds() != 0){

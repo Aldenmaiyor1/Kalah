@@ -10,6 +10,7 @@ public class ShowUI {
         this.io = io;
     }
 
+    //Shows Board UI
     public void showBoard(Player player1, Player player2){
         io.println("+----+-------+-------+-------+-------+-------+-------+----+");
         io.print("| P2 |");
@@ -32,9 +33,12 @@ public class ShowUI {
         io.println("+----+-------+-------+-------+-------+-------+-------+----+");
     }
 
+    // shows gameover screen
     public void gameOver(){
         io.println("Game over");
     }
+
+    //shows game finsihed screen
     public void gameFinished(Player player1, Player player2){
         int playerOneScore = player1.getTotalSeeds();
         int playerTwoScore = player2.getTotalSeeds();
@@ -49,6 +53,7 @@ public class ShowUI {
         }
     }
 
+    //shows empty house message
     public void emptyHouseMessage(){
         io.println("House is empty. Move again.");
     }
