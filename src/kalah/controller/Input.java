@@ -1,4 +1,4 @@
-package kalah;
+package kalah.controller;
 
 import com.qualitascorpus.testsupport.MockIO;
 import com.qualitascorpus.testsupport.IO;

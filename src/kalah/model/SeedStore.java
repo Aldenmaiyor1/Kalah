@@ -1,4 +1,4 @@
-package kalah;
+package kalah.model;
 
 public class SeedStore {
     private int seeds;

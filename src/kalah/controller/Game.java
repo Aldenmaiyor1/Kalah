@@ -1,6 +1,7 @@
-package kalah;
+package kalah.controller;
 
-import com.qualitascorpus.testsupport.MockIO;
+import kalah.model.Player;
+import kalah.view.ShowUI;
 
 import java.util.ArrayList;
 import java.util.List;

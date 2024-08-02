@@ -1,7 +1,7 @@
-package kalah;
+package kalah.view;
 
 import com.qualitascorpus.testsupport.IO;
-import com.qualitascorpus.testsupport.MockIO;
+import kalah.model.Player;
 
 public class ShowUI {
 

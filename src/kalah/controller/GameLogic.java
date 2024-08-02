@@ -1,4 +1,6 @@
-package kalah;
+package kalah.controller;
+
+import kalah.model.Player;
 
 import java.util.ArrayList;
 
